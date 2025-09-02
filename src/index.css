@@ -125,9 +125,206 @@
     background: rgba(22, 33, 62, 0.8);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 107, 53, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
   }
 
+  .anime-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.6);
+    box-shadow: 0 15px 35px rgba(255, 107, 53, 0.3);
+  }
+
+  .anime-card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      45deg,
+      transparent,
+      rgba(255, 215, 0, 0.1),
+      transparent
+    );
+    transform: rotate(-45deg) translateX(-100%);
+    transition: transform 0.6s ease;
+  }
+
+  .anime-card:hover::before {
+    transform: rotate(-45deg) translateX(100%);
+  }
+
+  /* Банкай анимация */
+  .bankai-effect {
+    animation: bankai 3s ease-in-out infinite;
+  }
+
+  @keyframes bankai {
+    0%,
+    100% {
+      text-shadow: 0 0 10px rgba(255, 107, 53, 0.5);
+      transform: scale(1);
+    }
+    50% {
+      text-shadow:
+        0 0 20px rgba(255, 215, 0, 0.8),
+        0 0 30px rgba(255, 107, 53, 0.6);
+      transform: scale(1.02);
+    }
+  }
+
+  /* Духовная энергия */
   .spiritual-energy {
     animation: pulse 2s ease-in-out infinite alternate;
+  }
+
+  .reiatsu-wave {
+    animation: reiatsu 4s ease-in-out infinite;
+  }
+
+  @keyframes reiatsu {
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 107, 53, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 20px rgba(255, 107, 53, 0);
+    }
+  }
+
+  /* Занпакто эффект */
+  .zanpakuto-glow {
+    position: relative;
+  }
+
+  .zanpakuto-glow::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 107, 53, 0.1) 0%,
+      rgba(255, 215, 0, 0.1) 50%,
+      rgba(255, 107, 53, 0.1) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    border-radius: inherit;
+  }
+
+  .zanpakuto-glow:hover::after {
+    opacity: 1;
+  }
+
+  /* Частицы фона */
+  .spiritual-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .particle {
+    position: absolute;
+    background: radial-gradient(
+      circle,
+      rgba(255, 215, 0, 0.8) 0%,
+      rgba(255, 107, 53, 0.4) 100%
+    );
+    border-radius: 50%;
+    animation: float-particle 6s linear infinite;
+  }
+
+  .particle:nth-child(odd) {
+    background: radial-gradient(
+      circle,
+      rgba(255, 107, 53, 0.6) 0%,
+      rgba(255, 215, 0, 0.2) 100%
+    );
+    animation-duration: 8s;
+  }
+
+  @keyframes float-particle {
+    0% {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-10vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Кидо эффект для кнопок */
+  .kido-button {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .kido-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(
+      circle,
+      rgba(255, 215, 0, 0.4) 0%,
+      transparent 70%
+    );
+    transition: all 0.6s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .kido-button:hover::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Hollow маска эффект */
+  .hollow-mask {
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+    transition: clip-path 0.3s ease;
+  }
+
+  .hollow-mask:hover {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+
+  /* Мерцающий текст */
+  .flicker-text {
+    animation: flicker 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes flicker {
+    0%,
+    100% {
+      opacity: 1;
+      text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+    }
+    50% {
+      opacity: 0.8;
+      text-shadow:
+        0 0 10px rgba(255, 107, 53, 0.8),
+        0 0 15px rgba(255, 215, 0, 0.6);
+    }
   }
 }

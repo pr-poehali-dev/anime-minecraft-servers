@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import Icon from "@/components/ui/icon";
+import SpiritualParticles from "@/components/SpiritualParticles";
 
 export default function Index() {
   const servers = [
@@ -18,7 +19,8 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen anime-gradient text-white">
+    <div className="min-h-screen anime-gradient text-white relative">
+      <SpiritualParticles />
       {/* Навигация */}
       <nav className="anime-card backdrop-blur-md sticky top-0 z-50">
         <div className="container mx-auto px-6 py-4">
@@ -47,15 +49,15 @@ export default function Index() {
           style={{ backgroundImage: `url(/img/ac713abd-0649-4cad-9ac6-41245df2afae.jpg)` }}
         />
         <div className="container mx-auto text-center relative z-10">
-          <h1 className="text-6xl font-bold mb-6 spiritual-energy">
-            BLEACH <span className="text-bleach-gold">CRAFT</span>
+          <h1 className="text-6xl font-bold mb-6 bankai-effect relative z-10">
+            BLEACH <span className="text-bleach-gold flicker-text">CRAFT</span>
           </h1>
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             Погрузись в мир аниме Блич в Minecraft! Становись Шинигами, сражайся с Холлоу, 
             исследуй Общество Душ и открывай свои духовные способности.
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
-            <Button className="bg-bleach-orange hover:bg-opacity-80 text-white px-8 py-3 text-lg bleach-glow">
+            <Button className="bg-bleach-orange hover:bg-opacity-80 text-white px-8 py-3 text-lg bleach-glow kido-button reiatsu-wave">
               <Icon name="Play" size={20} className="mr-2" />
               Начать игру
             </Button>
